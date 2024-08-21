@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/bar.dart';
+import 'bar_detail_page.dart';
 
 class BarSearch extends SearchDelegate<Bar> {
   final List<Bar> bars;
@@ -52,6 +53,12 @@ class BarSearch extends SearchDelegate<Bar> {
         title: Text(bar.name),
         onTap: () {
           query = bar.name;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BarDetailPage(bar: bar),
+            ),
+          );
         },
       )).toList(),
     );
